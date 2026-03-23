@@ -55,13 +55,13 @@ export default function Home() {
       id: 10,
       category: "events",
       title: "College LaSalle",
-      image: "/images/CollegeLaSalle/collegeLaSalle3.jpeg",
+      image: "/images/CollegeLaSalle/CollegeLaSalle3.jpeg",
     },
     {
       id: 11,
       category: "events",
       title: "College LaSalle",
-      image: "/images/CollegeLaSalle/collegeLaSalle4.jpeg",
+      image: "/images/CollegeLaSalle/CollegeLaSalle4.jpeg",
     },
     {
       id: 12,
