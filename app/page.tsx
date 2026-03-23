@@ -5,10 +5,11 @@ import { ChevronRight, Mail, Instagram, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GitForkIcon as TiktokIcon } from "lucide-react"
 import React, { useState, useRef, useEffect } from "react"
+import Image from "next/image"
 
 
 export default function Home() {
-  const [activeCategory, setActiveCategory] = useState("all")
+  const [activeCategory, setActiveCategory] = useState("behind the scenes")
 
   const portfolioData = [
     {
@@ -16,18 +17,21 @@ export default function Home() {
       category: "Golf Industry",
       title: "Golf du maroc",
       image: "/images/videos/Onesecmotion-frmgolf.mp4",
+      poster: "/images/videos/Onesecmotion-frmgolf_thumb.jpg",
     },
     {
       id: 5,
       category: "Golf Industry",
       title: "Golf du maroc",
       image: "/images/videos/Onesecmotion-golfdumaroc.mp4",
+      poster: "/images/videos/Onesecmotion-golfdumaroc_thumb.jpg",
     },
     {
       id: 6,
       category: "Golf Industry",
       title: "Golf du maroc",
       image: "/images/videos/Onesecmotion-golfdusoleil.mp4",
+      poster: "/images/videos/Onesecmotion-golfdusoleil_thumb.jpg",
     },
     {
       id: 7,
@@ -102,10 +106,18 @@ export default function Home() {
       image: "/images/restaurants/restaurant4.jpeg",
     },
     {
+    id: 19,
+    category: "events",
+    title: "College LaSalle",
+    image: "/images/CollegeLaSalle/collegeLaSalleVideo0_compressed.mp4",
+    poster: "/images/CollegeLaSalle/collegeLaSalleVideo0_thumb.jpg",
+    },
+    {
       id: 20,
       category: "Automotive",
       title: "car edit",
       image: "/images/edits/carEdit0.mov",
+      poster: "/images/edits/carEdit0_thumb.jpg",
     },
     {
       id: 21,
@@ -199,12 +211,6 @@ export default function Home() {
     },
   ]
 
-  // {
-  //     id: 19,
-  //     category: "events",
-  //     title: "College LaSalle",
-  //     image: "/images/CollegeLaSalle/collegeLaSalleVideo0.mov",
-  //   },
   const categories = ["all","behind the scenes","events","Jewelery", "Golf Industry","Automotive"]
 
   const filteredPortfolio =
@@ -263,10 +269,13 @@ export default function Home() {
             {/* Hero Image - CHANGE: Replace headshot with circular logo */}
             <div className="relative h-96 md:h-full flex items-center justify-center">
               <div className="w-64 h-64 rounded-full overflow-hidden shadow-lg border-4 border-accent">
-                <img
+                <Image
                   src="/images/onesecmotionlogo.jpg"
                   alt="OneSecMotion Logo"
+                  width={256}
+                  height={256}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </div>
             </div>
@@ -310,15 +319,17 @@ export default function Home() {
                 className="group relative overflow-hidden rounded-lg aspect-square bg-card cursor-pointer shadow-md hover:shadow-lg transition-shadow"
               >
                 {item.image.endsWith(".mp4")  || item.image.endsWith(".mov") ? (
-              <VideoWrapper key={item.id} src={item.image} />
+              <VideoWrapper key={item.id} src={item.image} poster={item.poster} />
             ) : (
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             )}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 pointer-events-none">
+                <div className="absolute inset-0 bg-linear-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 pointer-events-none">
                   <div>
                     <p className="text-sm text-foreground/80 capitalize">{item.category}</p>
                     <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
@@ -483,7 +494,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-border pt-8 flex items-center justify-between text-sm text-foreground/70">
-            <p>&copy; 2025 OneSecMotion. All rights reserved.</p>
+            <p>&copy; 2026 OneSecMotion. All rights reserved.</p>
             <div className="flex items-center gap-4">
               <Link href="#" className="hover:text-accent transition">
                 Privacy
@@ -499,11 +510,8 @@ export default function Home() {
   )
 }
 
-function VideoWrapper({ src }: { src: string }) {
+function VideoWrapper({ src, poster }: { src: string, poster?: string }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  
-  // Controls must be true at all times so the user can interact with the play/pause button.
-  // We don't need 'showControls' state anymore since we're keeping them permanently visible.
   
   useEffect(() => {
     const v = videoRef.current;
@@ -525,17 +533,14 @@ function VideoWrapper({ src }: { src: string }) {
     }
   }, [src]);
 
-  // We are removing handleClick since we now rely on native controls.
-  // We can remove the onPause handler too, as we're not using it to manage state anymore.
-
   return (
     <video
       ref={videoRef}
       src={src}
-      // Essential for native playback control
       controls={true} 
       playsInline
-      
+      preload="none"
+      poster={poster}
       className="w-full h-full object-cover"
     />
   );
