@@ -12,27 +12,7 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState("behind the scenes")
 
   const portfolioData = [
-    {
-      id: 4,
-      category: "Golf Industry",
-      title: "Golf du maroc",
-      image: "/images/videos/Onesecmotion-frmgolf.mp4",
-      poster: "/images/videos/Onesecmotion-frmgolf_thumb.jpg",
-    },
-    {
-      id: 5,
-      category: "Golf Industry",
-      title: "Golf du maroc",
-      image: "/images/videos/Onesecmotion-golfdumaroc.mp4",
-      poster: "/images/videos/Onesecmotion-golfdumaroc_thumb.jpg",
-    },
-    {
-      id: 6,
-      category: "Golf Industry",
-      title: "Golf du maroc",
-      image: "/images/videos/Onesecmotion-golfdusoleil.mp4",
-      poster: "/images/videos/Onesecmotion-golfdusoleil_thumb.jpg",
-    },
+    
     {
       id: 7,
       category: "events",
@@ -209,9 +189,81 @@ export default function Home() {
       title: "Samira Store",
       image: "/images/Jewelery/samirasstore-20250815-0015.jpg",
     },
+    {
+      id: 36,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/0074F946-64D4-461D-9883-0CE437A4D347.jpeg",
+    },
+    {
+      id: 37,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/IMG_0829.jpeg",
+    },
+    {
+      id: 38,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/IMG_0831.jpeg",
+    },
+    {
+      id: 39,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/IMG_0834.jpeg",
+    },
+    {
+      id: 40,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/IMG_2071.jpeg",
+    },
+    {
+      id: 41,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/IMG_2072.jpeg",
+    },
+    {
+      id: 42,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/IMG_2127.jpeg",
+    },
+    {
+      id: 43,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/IMG_2136.jpeg",
+    },
+    {
+      id: 44,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/IMG_2146.jpeg",
+    },
+    {
+      id: 45,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/IMG_2189.jpeg",
+    },
+    {
+      id: 46,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/IMG_2198.jpeg",
+    },
+    {
+      id: 47,
+      category: "Riad",
+      title: "Riad",
+      image: "/images/Riad/IMG_7132.jpeg",
+    },
   ]
 
-  const categories = ["all","behind the scenes","events","Jewelery", "Golf Industry","Automotive"]
+  const categories = ["all","behind the scenes","events","Jewelery","Riad","Automotive"]
 
   const filteredPortfolio =
     activeCategory === "all" ? portfolioData : portfolioData.filter((item) => item.category === activeCategory)
@@ -328,6 +380,8 @@ export default function Home() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={75}
+                loading="lazy"
               />
             )}
                 <div className="absolute inset-0 bg-linear-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 pointer-events-none">
