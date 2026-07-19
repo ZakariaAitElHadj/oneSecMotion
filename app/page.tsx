@@ -261,9 +261,141 @@ export default function Home() {
       title: "Riad",
       image: "/images/Riad/IMG_7132.jpeg",
     },
+    {
+      id: 49,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/-DSC09694.jpg",
+    },
+    {
+      id: 50,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/3-devant.jpg",
+    },
+    {
+      id: 51,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/DSC08221.jpg",
+    },
+    {
+      id: 53,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/DSC08259-devant.jpg",
+    },
+    {
+      id: 54,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/DSC08274-devant.jpg",
+    },
+    {
+      id: 55,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/DSC08280-devant.jpg",
+    },
+    {
+      id: 56,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/DSC08292-devant.jpg",
+    },
+    {
+      id: 57,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/DSC08301-devant.jpg",
+    },
+    {
+      id: 58,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/DSC08302-devant.jpg",
+    },
+    {
+      id: 59,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/DSC08372-devant.jpg",
+    },
+    {
+      id: 60,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/DSC09081-devant.jpg",
+    },
+    {
+      id: 61,
+      category: "Clothes",
+      title: "Clothes",
+      image: "/images/Clothes/DSC09083-devant.jpg",
+    },
+    {
+      id: 63,
+      category: "Studio Product Shots",
+      title: "Studio Product Shots",
+      image: "/images/StudioProductShots/2-detail.jpg",
+    },
+    {
+      id: 64,
+      category: "Studio Product Shots",
+      title: "Studio Product Shots",
+      image: "/images/StudioProductShots/africa-twin-devant.jpg",
+    },
+    {
+      id: 65,
+      category: "Studio Product Shots",
+      title: "Studio Product Shots",
+      image: "/images/StudioProductShots/black x-adv-devant.jpg",
+    },
+    {
+      id: 66,
+      category: "Studio Product Shots",
+      title: "Studio Product Shots",
+      image: "/images/StudioProductShots/black-gs-2-devant.jpg",
+    },
+    {
+      id: 67,
+      category: "Studio Product Shots",
+      title: "Studio Product Shots",
+      image: "/images/StudioProductShots/mv-gusta-devant.jpg",
+    },
+    {
+      id: 68,
+      category: "Studio Product Shots",
+      title: "Studio Product Shots",
+      image: "/images/StudioProductShots/ninja-devant.jpg",
+    },
+    {
+      id: 69,
+      category: "Studio Product Shots",
+      title: "Studio Product Shots",
+      image: "/images/StudioProductShots/red-x-adv-devant.jpg",
+    },
+    {
+      id: 70,
+      category: "Studio Product Shots",
+      title: "Studio Product Shots",
+      image: "/images/StudioProductShots/sans-titre2-dos.jpg",
+    },
+    {
+      id: 71,
+      category: "Studio Product Shots",
+      title: "Studio Product Shots",
+      image: "/images/StudioProductShots/yamaha-dos.jpg",
+    },
+    {
+      id: 72,
+      category: "Studio Product Shots",
+      title: "Studio Product Shots",
+      image: "/images/StudioProductShots/Z800-detail.jpg",
+    },
   ]
 
-  const categories = ["all","behind the scenes","events","Jewelery","Riad","Automotive"]
+  const categories = ["all","behind the scenes","events","Jewelery","Riad","Automotive","Studio Product Shots","Clothes"]
 
   const filteredPortfolio =
     activeCategory === "all" ? portfolioData : portfolioData.filter((item) => item.category === activeCategory)
